@@ -1,0 +1,42 @@
+plugins {
+    id 'java'
+}
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    junitPlatformVersion = '1.6.2'
+    junitJupiterVersion = '5.6.2'
+    assertJVersion = '3.16.1'
+    jqwikVersion = '1.4.0'
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
+}
+
+compileTestJava {
+    options.compilerArgs += '-parameters'
+    options.encoding = 'UTF-8'
+}
+
+test {
+    useJUnitPlatform()
+    include '**/*Properties.class'
+    include '**/*Examples.class'
+    include '**/*Test.class'
+    include '**/*Tests.class'
+}
+
+dependencies {
+    testImplementation("net.jqwik:jqwik:${jqwikVersion}")
+    testImplementation("org.junit.jupiter:junit-jupiter-api:${junitJupiterVersion}")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitJupiterVersion}")
+}
+
+wrapper {
+    gradleVersion = '6.6'
+}
