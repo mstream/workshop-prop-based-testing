@@ -1,0 +1,7 @@
+.classpath
+.gradle
+.idea
+.jqwik-database
+.settings
+bin
+build

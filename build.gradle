@@ -1,0 +1,53 @@
+plugins {
+  id 'java'
+}
+
+repositories {
+  mavenCentral()
+}
+
+ext {
+  assertJVersion = '3.19.0'
+  jauterVersion = '1.7'
+  jqwikVersion = '1.5.0'
+  junitPlatformVersion = '1.7.1'
+  junitJupiterVersion = '5.7.1'
+}
+
+java {
+  sourceCompatibility = JavaVersion.VERSION_11
+  targetCompatibility = JavaVersion.VERSION_11
+}
+
+compileTestJava {
+  options.compilerArgs += '-parameters'
+  options.encoding = 'UTF-8'
+}
+
+test {
+  useJUnitPlatform()
+    include '**/*Properties.class'
+    include '**/*Examples.class'
+    include '**/*Test.class'
+    include '**/*Tests.class'
+}
+
+dependencies {
+  implementation("tv.cntt:jauter:${jauterVersion}")
+  testImplementation("net.jqwik:jqwik:${jqwikVersion}")
+  testImplementation("org.junit.jupiter:junit-jupiter-api:${junitJupiterVersion}")
+  testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitJupiterVersion}")
+}
+
+wrapper {
+  gradleVersion = '6.8.3'
+}
+
+["api", "adder", "metrics", "set", "sorter"].each { tag ->
+  tasks.create(group: "test", name: "test${tag.capitalize()}", type: Test) {
+    useJUnitPlatform {
+      includeTags tag
+    }
+  }
+}
+
