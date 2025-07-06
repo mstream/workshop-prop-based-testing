@@ -8,7 +8,5 @@ import java.util.function.UnaryOperator;
  * Returns a new instance of list which can be modified.
  */
 
-@FunctionalInterface
-public interface Sorter<T extends Comparable<? super T>>
-  extends UnaryOperator<List<T>> {
+public interface Sorter<T extends Comparable<? super T>> extends UnaryOperator<List<T>> {
 }
