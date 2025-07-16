@@ -4,6 +4,7 @@
 
 - [Adder](docs/examples/Adder.md)
 - [Codec](docs/examples/Codec.md)
+- [Counter](docs/examples/Counter.md)
 - [Set](docs/examples/Set.md)
 - [Sorter](docs/examples/Sorter.md)
 
@@ -15,3 +16,8 @@
 - [The more things change, the more they stay the same](docs/strategies/StaySame.md)
 - [Hard to prove, easy to verify](docs/strategies/EasyToVerify.md)
 - [Test oracle](docs/strategies/TestOracle.md)
+
+## Tooling
+
+- [jqwik](https://jqwik.net/)
+- [fast-check](https://fast-check.dev/)
