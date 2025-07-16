@@ -1,4 +1,4 @@
-package workshop.set.actions;
+package workshop.set.property.actions;
 
 import net.jqwik.api.stateful.Action;
 

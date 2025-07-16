@@ -8,6 +8,6 @@ public class TestMirroringAdderImpl implements Adder {
             Long a,
             Long b
     ) {
-        return 0L;
+        return Math.max(a,b);
     }
 }

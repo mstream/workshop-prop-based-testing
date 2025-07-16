@@ -17,7 +17,6 @@ public interface AdderContract {
     @Provide
     Arbitrary<Long> anyLongWithinRangeOfInteger();
 
-    //@Disabled
     @Property
     default void isDistributive(
             @ForAll("anyLongWithinRangeOfInteger") Long a,
@@ -61,7 +60,6 @@ public interface AdderContract {
 
     }
 
-    //@Disabled
     @Property
     default void isAssociative(
             @ForAll("anyLongWithinRangeOfInteger") Long a,
@@ -106,7 +104,6 @@ public interface AdderContract {
         );
     }
 
-    //@Disabled
     @Property
     default void isCommutative(
             @ForAll("anyLongWithinRangeOfInteger") Long a,
@@ -136,7 +133,6 @@ public interface AdderContract {
         );
     }
 
-    //@Disabled
     @Property
     default void itsIdentityElementIsZero(
             @ForAll("anyLongWithinRangeOfInteger") Long a
@@ -159,7 +155,6 @@ public interface AdderContract {
         );
     }
 
-    //@Disabled
     @Property
     default void successorIsGreaterThanPredecessor(
             @ForAll("anyLongWithinRangeOfInteger") Long a

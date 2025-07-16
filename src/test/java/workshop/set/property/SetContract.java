@@ -1,4 +1,4 @@
-package workshop.set;
+package workshop.set.property;
 
 import net.jqwik.api.Arbitrary;
 import net.jqwik.api.ForAll;

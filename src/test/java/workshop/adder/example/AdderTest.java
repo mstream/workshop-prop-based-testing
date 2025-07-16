@@ -1,12 +1,10 @@
 package workshop.adder.example;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 import workshop.adder.Adder;
 import workshop.adder.correct.AdderImpl;
-import workshop.adder.incorrect.SubtractionAdderImpl;
 import workshop.adder.incorrect.TestMirroringAdderImpl;
 
 import java.util.stream.Stream;
@@ -33,14 +31,14 @@ public class AdderTest {
                         3
                 ),
                 Arguments.of(
-                        2,
+                        1,
                         3,
-                        5
+                        4
                 ),
                 Arguments.of(
-                        -1,
-                        3,
-                        2
+                        2,
+                        2,
+                        4
                 )
         );
     }
@@ -58,7 +56,7 @@ public class AdderTest {
                         i1,
                         i2
                 ),
-                () -> i1 + " + " + i2 + " should be equal to" + expected
+                () -> i1 + " + " + i2 + " should be equal to " + expected
         );
     }
 }

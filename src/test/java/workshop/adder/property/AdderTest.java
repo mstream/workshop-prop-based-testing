@@ -4,12 +4,12 @@ import net.jqwik.api.Arbitraries;
 import net.jqwik.api.Arbitrary;
 import net.jqwik.api.Example;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Disabled;
 import workshop.adder.Adder;
 import workshop.adder.correct.AdderImpl;
-import workshop.adder.incorrect.ModuloAdderImpl;
+import workshop.adder.incorrect.AlwaysZeroAdderImpl;
 import workshop.adder.incorrect.MultiplicationAdderImpl;
 import workshop.adder.incorrect.SubtractionAdderImpl;
+import workshop.adder.incorrect.TestMirroringAdderImpl;
 
 public class AdderTest implements AdderContract {
 
@@ -17,8 +17,8 @@ public class AdderTest implements AdderContract {
         return new AdderImpl();
     }
 
-    private Adder modulo() {
-        return new ModuloAdderImpl();
+    private Adder alwaysZero() {
+        return new AlwaysZeroAdderImpl();
     }
 
     private Adder multiplication() {
@@ -27,6 +27,10 @@ public class AdderTest implements AdderContract {
 
     private Adder subtraction() {
         return new SubtractionAdderImpl();
+    }
+
+    private Adder testMirroring() {
+        return new TestMirroringAdderImpl();
     }
 
     @Override
@@ -39,7 +43,6 @@ public class AdderTest implements AdderContract {
         return Arbitraries.integers().map(Long::valueOf);
     }
 
-    @Disabled
     @Example
     public void oneAndTwo() {
         Assertions.assertEquals(

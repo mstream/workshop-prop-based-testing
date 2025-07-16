@@ -1,15 +1,15 @@
-package workshop.set;
+package workshop.set.property;
 
 import net.jqwik.api.Arbitraries;
 import net.jqwik.api.Arbitrary;
 import net.jqwik.api.Tuple;
 import net.jqwik.api.stateful.Action;
 import net.jqwik.api.stateful.ActionSequence;
-import workshop.set.actions.Add;
-import workshop.set.actions.Clear;
-import workshop.set.actions.Remove;
+import workshop.set.property.actions.Add;
+import workshop.set.property.actions.Clear;
+import workshop.set.property.actions.Remove;
 import workshop.set.correct.SetImpl;
-import workshop.set.incorrect.NotClearingSetImpl;
+import workshop.set.incorrect.LimitedClearingSetImpl;
 import workshop.set.incorrect.UndersizedSetImpl;
 
 import java.util.Set;
@@ -20,8 +20,8 @@ public class IntegerSetTest implements SetContract<Integer> {
         return new SetImpl<>();
     }
 
-    private Set<Integer> notClearing() {
-        return new NotClearingSetImpl<>();
+    private Set<Integer> limitedClearing() {
+        return new LimitedClearingSetImpl<>();
     }
 
     private Set<Integer> undersized() {
@@ -30,7 +30,7 @@ public class IntegerSetTest implements SetContract<Integer> {
 
     @Override
     public Set<Integer> subject() {
-        return correct();
+        return limitedClearing();
     }
 
     @Override
