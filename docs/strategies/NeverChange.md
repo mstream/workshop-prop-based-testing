@@ -10,5 +10,6 @@ flowchart LR
 
 ## Examples
 
+- identity of addition (some operands do not affect results)
 - list sorting (permutation)
 - functor mapping (structure preservation)
